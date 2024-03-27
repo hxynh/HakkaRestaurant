@@ -3,7 +3,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import { RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
-import Menu from './pages/Menu';
+import PlaceOrder from './pages/PlaceOrder';
+import Cart from './pages/Cart';
 
 function App() {
 
@@ -18,8 +19,12 @@ function App() {
     },
     {
       path: "menu",
-      element: <Menu />
+      element: <PlaceOrder />
     },
+    {
+      path: "cart",
+      element: <Cart />
+    }
   ]);
 
   return (
