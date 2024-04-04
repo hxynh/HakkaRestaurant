@@ -2,8 +2,10 @@ import AmountSection from "../components/AmountSection";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import QtyBtn from "../components/QtyBtn";
+import { useAppSelector } from "../app/store";
 
 export default function Cart() {
+  const  cartItems = useAppSelector(state => state.cart.orders)
   return (
     <>
         <Navbar />
@@ -18,18 +20,15 @@ export default function Cart() {
             </tr>
             </thead>
             <tbody>
-            {/* row 1 */}
-            <tr>
-                <th><QtyBtn /></th>
-                <td>Cy Ganderton</td>
-                <td className="float-end">10.99</td>
-            </tr>
-            {/* row 2 */}
-            <tr>
-                <th><QtyBtn /></th>
-                <td>Hart Hagerty</td>
-                <td className="float-end">29.97</td>
-            </tr>
+                {
+                    cartItems.map((item) => (
+                        <tr>
+                            <th><QtyBtn order={item} /></th>
+                            <td>{item.name}</td>
+                            <td className="float-end">{(item.price * item.qty)}</td>
+                        </tr>
+                    ))
+                }
             </tbody>
         </table>
         

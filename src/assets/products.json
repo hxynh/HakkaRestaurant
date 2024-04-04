@@ -1,0 +1,62 @@
+[
+    {
+        "id": "001",
+        "category": "soup",
+        "name": "Hot & Sour soup",
+        "price": 8.99
+    },
+    {
+        "id": "002",
+        "category": "soup",
+        "name": "Corn soup",
+        "price": 7.99
+    },
+    {
+        "id": "003",
+        "category": "rice",
+        "name": "Chicken Fried Rice",
+        "price": 10.25
+    },
+    {
+        "id": "004",
+        "category": "rice",
+        "name": "Thai Fried Rice",
+        "price": 10.55
+    },
+    {
+        "id": "005",
+        "category": "noodles",
+        "name": "Hakka Noodles",
+        "price": 11.75
+    },
+    {
+        "id": "006",
+        "category": "noodles",
+        "name": "Cantonese Chow mein",
+        "price": 12.99
+    },
+    {
+        "id": "007",
+        "category": "meat",
+        "name": "Chilli Chicken",
+        "price": 13.99
+    },
+    {
+        "id": "008",
+        "category": "meat",
+        "name": "Manchurian Chicken",
+        "price": 8.99
+    },
+    {
+        "id": "009",
+        "category": "vegetable",
+        "name": "Stir fry Greenbeans",
+        "price": 8.99
+    },
+    {
+        "id": "010",
+        "category": "vegetable",
+        "name": "Baby Bakchoy",
+        "price": 8.99
+    }
+]
