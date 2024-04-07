@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../app/store";
 
 export default function Navbar() {
+  const cartItems = useAppSelector(state => state.cart.orders);
+
   return (
       <div className="navbar bg-base-100 px-8">
         <div className="navbar-start">
@@ -23,7 +26,9 @@ export default function Navbar() {
               <li><Link to="/menu">Order Now</Link></li>
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end indicator">
+        <span className="indicator-item badge badge-secondary p-1.5 -translate-y-1/4">{cartItems.length}</span> 
+
           <Link to="/cart" className="btn">Cart</Link>
         </div>
       </div>

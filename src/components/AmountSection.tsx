@@ -9,11 +9,11 @@ export default function AmountSection() {
             <tbody> 
                 <tr>
                     <td className="font-semibold pr-8">Subtotal</td>
-                    <td>{(subtotal.toFixed(2))}</td>
+                    <td>{Math.abs(subtotal).toFixed(2)}</td>
                 </tr>
                 <tr>
                     <td className="font-semibold pr-8">Tax</td>
-                    <td>{(subtotal * 0.13).toFixed(2)}</td>
+                    <td>{Math.abs(subtotal * 0.13).toFixed(2)}</td>
                 </tr>
                 <tr>
                     <td className="font-semibold pr-8">Promo</td>
@@ -21,7 +21,7 @@ export default function AmountSection() {
                 </tr>
                 <tr className="font-semibold text-primary">
                     <td className=" pr-8">Total</td>
-                    <td>{(subtotal * 1.13).toFixed(2)}</td>
+                    <td>{Math.abs(subtotal * 1.13).toFixed(2)}</td>
                 </tr>
             </tbody>
         </table>

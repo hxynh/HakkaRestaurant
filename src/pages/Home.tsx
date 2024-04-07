@@ -13,7 +13,6 @@ export default function Home() {
           <h1 className="text-4xl font-bold tracking-widest uppercase">Offers</h1>
           <div className="uppercase font-bold tracking-wider">
             <OffersSection />
-            <OffersSection />
           </div>
         </div>
         <InfoSection />

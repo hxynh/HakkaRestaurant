@@ -1,6 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import cartOrders from "../../assets/cart.json";
 
+interface Customer {
+    name: string,
+    phoneNumber: string,
+    email?: string
+}
+
 interface Order {
     id: string,
     category: string,
@@ -15,12 +21,16 @@ interface Total {
 }
 
 interface CartState {
+    customer: Customer,
     orders: Order[],
     total: Total
 }
 
-
 const initialState: CartState = {
+    customer: {
+        name: "",
+        phoneNumber: ""
+    },
     orders: [...cartOrders],
     total: {
         subtotal: cartOrders.map(item => item.qty * item.price).reduce((prev, cur) => prev + cur),
@@ -58,24 +68,38 @@ const cartSlice = createSlice({
             const {orderId, qty} = action.payload;
             const order = state.orders.find(order => order.id === orderId);
             if(order) {
-                if(qty <= 0) {
-                    state.orders = state.orders.filter(order => {order.id !== orderId})
-                    //subtotal calculation pending
-                }
-                else {
+                if(qty > 0) {
                     state.total.subtotal += order.price * qty
                     order.qty = qty 
                 }
+                else {
+                    state.total.subtotal -= order.qty * order.price;
+                    state.orders = state.orders.filter(order => order.id !== orderId)
+                }
             } 
-            
         },
         addNewItem: (state, action: PayloadAction<Order>) => {
-            console.log(action.payload.qty);
+            state.total.subtotal += action.payload.price
             state.orders.push(action.payload)
+        },
+        addCustomerInfo: (state, action: PayloadAction<string>) => {      
+            const {name, phoneNumber, email} = (JSON.parse(action.payload))
+            state.customer.name = name;
+            state.customer.phoneNumber = phoneNumber;
+            if(email) {
+                state.customer.email = email
+            }
+            console.log(state.customer.name)
+        },
+        emptyCart: (state) => {
+            state.customer.name = state.customer.phoneNumber = state.customer.email = "";
+            state.orders = [];
+            state.total.subtotal = state.total.promo = 0;
+            
         }
     }
 })
 
 console.log("Initial state ", initialState)
-export const { increment, decrement, enterQuantity, addNewItem} = cartSlice.actions;
+export const { increment, decrement, enterQuantity, addNewItem, addCustomerInfo, emptyCart} = cartSlice.actions;
 export default cartSlice.reducer
