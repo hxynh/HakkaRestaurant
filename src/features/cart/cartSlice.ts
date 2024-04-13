@@ -9,7 +9,6 @@ interface Customer {
 
 interface Order {
     id: string,
-    category: string,
     name: string,
     price: number,
     qty: number

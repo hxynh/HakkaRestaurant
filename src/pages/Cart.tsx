@@ -19,7 +19,9 @@ export default function Cart() {
   }
 
   const onClose = () => {
-    dispatch(emptyCart())
+    if(customerInfo.name !== ""){
+        dispatch(emptyCart())
+    }
     setModalIsOpen(false)
   }
 

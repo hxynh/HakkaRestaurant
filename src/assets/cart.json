@@ -1,28 +1,24 @@
 [
     {
         "id": "001",
-        "category": "soup",
         "name": "Hot & Sour soup",
         "price": 8.99,
         "qty": 2
     },
     {
         "id": "002",
-        "category": "soup",
         "name": "Corn soup",
         "price": 7.99,
         "qty": 1
     },
     {
         "id": "005",
-        "category": "noodles",
         "name": "Hakka Noodles",
         "price": 11.75,
         "qty": 1
     },
     {
         "id": "009",
-        "category": "vegetable",
         "name": "Stir fry Greenbeans",
         "price": 8.99,
         "qty": 3

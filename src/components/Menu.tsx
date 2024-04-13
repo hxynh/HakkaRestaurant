@@ -1,7 +1,7 @@
 import MenuItems from "./MenuItems";
 
 export type MenuProps = {
-    category: string
+    category: string,
     defaultChecked: boolean
 }
 
